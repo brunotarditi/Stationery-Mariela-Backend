@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 public class CategoryFactory implements Factory<Category, CategoryDto>{
     @Override
     public Category createEntity(CategoryDto categoryDto) {
-        Category category = new Category();
-        category.setName(categoryDto.getName());
-        return category;
+        return Category.builder()
+                .name(categoryDto.getName())
+                .build();
     }
 
     @Override
@@ -18,6 +18,8 @@ public class CategoryFactory implements Factory<Category, CategoryDto>{
         return CategoryDto.builder()
                 .id(category.getId())
                 .name(category.getName())
+                .createAt(category.getCreateAt())
+                .updateAt(category.getUpdateAt())
                 .isEnabled(category.isEnabled())
                 .build();
     }

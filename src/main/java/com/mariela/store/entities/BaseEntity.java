@@ -32,6 +32,10 @@ public class BaseEntity implements Serializable {
     @Column(name = "is_enabled")
     protected boolean isEnabled;
 
+    public BaseEntity(Long id){
+        this.id = id;
+    }
+
     @PrePersist
     public void defaultValues(){
         this.isEnabled = true;
