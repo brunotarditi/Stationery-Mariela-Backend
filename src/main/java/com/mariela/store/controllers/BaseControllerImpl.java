@@ -3,7 +3,6 @@ package com.mariela.store.controllers;
 import com.mariela.store.dtos.BaseDto;
 import com.mariela.store.entities.BaseEntity;
 import com.mariela.store.services.BaseServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -19,7 +18,6 @@ import java.util.Map;
 public class BaseControllerImpl<E extends BaseEntity, S extends BaseServiceImpl<E, Long, Dto>, Dto extends BaseDto> implements BaseController<E, Long, Dto> {
     protected S service;
 
-    @Autowired
     public BaseControllerImpl(S service) {
         this.service = service;
     }
